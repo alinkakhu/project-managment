@@ -1,0 +1,43 @@
+header{
+    padding: 10px 0;
+    background-color: #222;
+}
+ul{
+    padding: 0;
+margin: 12px 0;
+
+}
+li{
+    list-style: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 20px;
+    margin-left: 24px;
+}
+ul li:hover{
+    color: lightgray;
+    cursor: pointer;
+    transition: 0.4s ease-out;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+div.logo{
+    margin: 12px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+div.logo a:hover{
+    color: lightgray;
+    cursor: pointer;
+    transition: 0.4s ease-out;
+}
+button{
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+.dropdown-item{
+    color: black;
+}
