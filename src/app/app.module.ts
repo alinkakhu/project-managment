@@ -13,8 +13,14 @@ import { FormsModule, ReactiveFormsModule, NgForm } from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BoardsListComponent } from './boards/boards-list/boards-list.component';
-
-
+import { BoardComponent } from './boards/board/board.component';
+import { CreateBoardBtnComponent } from './boards/create-board-btn/create-board-btn.component';
+import { DialogComponent } from './boards/dialog/dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -25,13 +31,21 @@ import { BoardsListComponent } from './boards/boards-list/boards-list.component'
     LoginComponent,
     RegistrationComponent,
     BoardsListComponent,
+    BoardComponent,
+    CreateBoardBtnComponent,
+    DialogComponent,
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
 AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
 
 
   ],
