@@ -35,4 +35,14 @@ export class BoardService {
 });
 
   }
+
+  getBoardId(boardId:string | null): Observable<Board> {
+    return this.http.get<Board>(`http://localhost:4402/boards/${boardId}`,
+    {
+      headers: {
+        "Authorization": "Bearer " + this.authService.getToken()
+      }
+  });
+  }
+
 }

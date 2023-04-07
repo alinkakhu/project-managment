@@ -2,7 +2,7 @@
     <div class="card-body">
       <h5 class="card-title">{{board.title}}</h5>
 
-      <a href="" class="btn btn-primary"  >Go to board</a>
+      <a href="" class="btn btn-primary"   [routerLink]="['/boards', board._id]"  >Go to board</a>
       <button type="button" class="btn btn-outline-danger"(click)="onDelete(board)" >Delete</button>
     </div>
   </div>
