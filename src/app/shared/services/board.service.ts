@@ -26,4 +26,13 @@ export class BoardService {
   },
 });
   }
+  deleteBoard(id: string |null) {
+    return this.http.delete<Board>(`http://localhost:4402/boards/${id}`,
+    {
+      headers: {
+      "Authorization": "Bearer " + this.authService.getToken()
+  },
+});
+
+  }
 }

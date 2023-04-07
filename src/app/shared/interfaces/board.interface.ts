@@ -4,6 +4,7 @@ export interface Board {
 
   }
   export interface BoardTitle{
+    _id?: string | null,
     title:string ,
     owner: string | null ,
     users: string[] | null

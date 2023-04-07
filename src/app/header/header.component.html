@@ -33,6 +33,7 @@
         Sign up
       </button></li>
 </ul>
+<button *ngIf="isLogged()" routerLink="/boards">Boards</button>
 <app-create-board-btn *ngIf="isLogged()"></app-create-board-btn>
 
 <div *ngIf="isLogged()"class="dropdown">

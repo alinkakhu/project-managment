@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DeleteDialogComponent } from './boards/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatInputModule } from '@angular/material/input';
     BoardComponent,
     CreateBoardBtnComponent,
     DialogComponent,
+    DeleteDialogComponent,
 
   ],
   imports: [
