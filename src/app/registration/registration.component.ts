@@ -18,7 +18,7 @@ export class RegistrationComponent {
     const password = form.value.password;
 
     this.authService.signup(login, password, name).subscribe(
-      (resData) => {},
+      (resData) => {console.log(resData)},
       (error) => console.log(error)
     );
   }

@@ -3,6 +3,7 @@ import { Board } from 'src/app/shared/interfaces/board.interface';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
 import { BoardService } from 'src/app/shared/services/board.service';
+import { ColumnListComponent } from 'src/app/column/column-list/column-list.component';
 @Component({
   selector: 'app-big-board',
   templateUrl: './big-board.component.html',

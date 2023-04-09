@@ -7,13 +7,11 @@ import { AuthService } from 'src/app/auth/auth.service';
   providedIn: 'root'
 })
 export class BoardService {
-  boards:Board[]= [{
-    title:'Project'
-    }]
-    board!:BoardTitle
+  boards:any= []
+    board!:any
   constructor(private http:HttpClient, private authService:AuthService) { }
-  getBoards(): Observable<Board[]> {
-    return this.http.get<Board[]>('http://localhost:4402/boards', {
+  getBoards(id:string | null): Observable<any> {
+    return this.http.get<Board[]>(`http://localhost:4402/boardsSet/${id}`, {
       headers: {
       "Authorization": "Bearer " + this.authService.getToken()
   }} );

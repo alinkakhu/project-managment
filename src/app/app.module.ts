@@ -5,39 +5,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { HeaderComponent } from './header/header.component';
-import { ButtonComponent } from './button/button.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule, NgForm } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
 import { AppRoutingModule } from './app-routing.module';
-import { BoardsListComponent } from './boards/boards-list/boards-list.component';
-import { BoardComponent } from './boards/board/board.component';
-import { CreateBoardBtnComponent } from './boards/create-board-btn/create-board-btn.component';
-import { DialogComponent } from './boards/dialog/dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { DeleteDialogComponent } from './boards/delete-dialog/delete-dialog.component';
-import { BigBoardComponent } from './boards/big-board/big-board.component';
+import { BoardModule } from './boards/board.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomePageComponent,
     HeaderComponent,
-    ButtonComponent,
     LoginComponent,
-    RegistrationComponent,
-    BoardsListComponent,
-    BoardComponent,
-    CreateBoardBtnComponent,
-    DialogComponent,
-    DeleteDialogComponent,
-    BigBoardComponent,
+    RegistrationComponent
+
+
 
   ],
   imports: [
@@ -49,7 +39,9 @@ AppRoutingModule,
     MatDialogModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    BoardModule,
+    FontAwesomeModule
 
 
   ],

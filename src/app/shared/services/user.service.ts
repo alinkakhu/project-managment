@@ -14,4 +14,10 @@ export class UserService {
     "Authorization": "Bearer " + this.authService.getToken()
 }});
   }
+  getUserById(id: string | undefined): Observable<User> {
+    return this.http.get<User>(`http://localhost:4402/users/${id}`,  {
+      headers: {
+      "Authorization": "Bearer " + this.authService.getToken()
+  },});
+  }
 }
