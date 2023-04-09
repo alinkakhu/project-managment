@@ -1,4 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
+
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { CreateBoardBtnComponent } from '../create-board-btn/create-board-btn.component';
 import { BoardTitle } from 'src/app/shared/interfaces/board.interface';

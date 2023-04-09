@@ -11,13 +11,21 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DeleteColumnComponent } from './delete-column/delete-column.component';
+import { TaskComponent } from './task/task.component';
+import { TaskListComponent } from './task-list/task-list.component';
+import { AddTaskComponent } from './add-task/add-task.component';
+import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 @NgModule({
   declarations: [
     ColumnComponent,
     ColumnListComponent,
     AddColumnBtnComponent,
     ColumnDialogComponent,
-    DeleteColumnComponent
+    DeleteColumnComponent,
+    TaskComponent,
+    TaskListComponent,
+    AddTaskComponent,
+    TaskDialogComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +35,7 @@ import { DeleteColumnComponent } from './delete-column/delete-column.component';
     MatFormFieldModule,
     FormsModule,
     FontAwesomeModule
+
   ],
   exports:[ColumnListComponent]
 })

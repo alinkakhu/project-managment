@@ -6,7 +6,7 @@ import { BoardsListComponent } from './boards-list/boards-list.component';
 import { CreateBoardBtnComponent } from './create-board-btn/create-board-btn.component';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { DialogComponent } from './dialog/dialog.component';
-
+import { NgModel } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,7 +22,7 @@ import { ColumnModule } from '../column/column.module';
     BoardsListComponent,
     CreateBoardBtnComponent,
     DeleteDialogComponent,
-    DialogComponent
+    DialogComponent,
 
   ],
   imports: [
@@ -34,7 +34,8 @@ BoardsRoutingModule,
     MatInputModule,
     FormsModule,
     RouterModule,
-    ColumnModule
+    ColumnModule,
+
 
   ],
   exports:[ CreateBoardBtnComponent]

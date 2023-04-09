@@ -23,6 +23,7 @@ constructor(private columnService:ColumnService, private dialog:MatDialog, priva
 }
 ngOnInit(): void {
   this.boardId = this.route.snapshot.paramMap.get('id') || "";
+  console.log(this.column)
 }
 onSubmit(form:NgForm){
   const { title } = form.value;
@@ -30,7 +31,7 @@ onSubmit(form:NgForm){
   this.column= { title, order, _id, boardId }
 
   this.columnService.updateColumn(this.column).subscribe((data)=>{
-    console.log(data)
+    console.log(data._id)
   }, (error)=>{
     console.log(error)
   })
