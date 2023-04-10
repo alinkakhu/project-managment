@@ -1,6 +1,11 @@
 <div>
-    <h3 i18n>Are you sure?</h3>
-
+  <h3 i18n mat-dialog-title>Are you sure?</h3>
 </div>
-<button (click)="onConfirm()" color="primary" i18n-text text="Yes">Yes</button>
-<button (click)="onDismiss()" color="primary" i18n-text text="Cancel">Cancel</button>
+<div mat-dialog-content>
+  <button mat-button  (click)="onConfirm()" color="primary" i18n-text text="Yes">
+    Yes
+  </button>
+  <button mat-button  (click)="onDismiss()" color="primary" i18n-text text="Cancel">
+    Cancel
+  </button>
+</div>

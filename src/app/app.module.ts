@@ -17,8 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BoardModule } from './boards/board.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,7 +42,8 @@ AppRoutingModule,
     MatFormFieldModule,
     MatInputModule,
     BoardModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+ReactiveFormsModule
 
 
   ],

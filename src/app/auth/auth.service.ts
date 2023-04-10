@@ -13,14 +13,14 @@ export interface User {
 export class AuthService {
     authlogin:string = '';
   constructor(private http: HttpClient) {}
-  signup(login: string, password: string, name: string): Observable<unknown> {
+  signup(login: any, password: any, name: any): Observable<unknown> {
     return this.http.post('http://localhost:4402/auth/signup', {
       login: login,
       password: password,
       name: name,
     });
   }
-  login(login: string, password: string): Observable<{ token: string }> {
+  login(login: any, password: any): Observable<{ token: string }> {
     return this.http.post<{ token: string }>(
       'http://localhost:4402/auth/signin',
       {

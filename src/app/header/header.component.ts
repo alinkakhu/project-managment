@@ -9,17 +9,22 @@ import { CreateBoardBtnComponent } from '../boards/create-board-btn/create-board
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  name:any =this.getName()
   constructor(
     private auth: AuthService,
     private router: Router,
     private boardService: BoardService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
   isLogged() {
     return !!this.auth.isLoggedIn();
   }
-
+getName(){
+  return localStorage.getItem('name')
+}
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('login');

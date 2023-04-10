@@ -47,8 +47,8 @@ export class TaskComponent implements OnInit {
   }
   editTask(task: Task) {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
-      width: '500px',
-      height: '200px',
+      width: '320px',
+      height: '300px',
       data: { title: '', description: '' },
       panelClass: 'custom-dialog-container',
     });

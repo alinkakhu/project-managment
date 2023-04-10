@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+
 import { AuthService } from '../auth/auth.service';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -12,12 +11,38 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class RegistrationComponent {
   constructor(private authService: AuthService) {}
 
-  onSubmit(form: NgForm) {
-    const name = form.value.name;
-    const login = form.value.login;
-    const password = form.value.password;
+registerForm= new FormGroup({
+name: new FormControl('',  [
+  Validators.required,
+  Validators.minLength(2),
+  Validators.maxLength(20),
+  Validators.pattern('^[a-zA-Z].*')
+]),
+login: new FormControl('',  [
+  Validators.required,
+  Validators.minLength(2),
+  Validators.pattern('^[a-zA-Z0-9]+$'),
+]),
+password: new FormControl('',[
+  Validators.required,
+  Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'),
+])
 
-    this.authService.signup(login, password, name).subscribe(
+})
+get getName():FormControl{
+return this.registerForm.get('name') as FormControl
+}
+get getLogin():FormControl{
+  return this.registerForm.get('login') as FormControl
+  }
+  get getPassword():FormControl{
+    return this.registerForm.get('password') as FormControl
+    }
+  onSubmit() {
+
+    const { name, login, password } = this.registerForm.value;
+
+    this.authService.signup(name, login, password).subscribe(
       (resData) => {console.log(resData)},
       (error) => console.log(error)
     );

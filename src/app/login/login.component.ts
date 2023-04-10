@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+
 import { AuthService, User } from '../auth/auth.service';
-import { Token } from '@angular/compiler';
+
 import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import { UserService } from '../shared/services/user.service';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,30 +17,49 @@ export class LoginComponent {
     private router: Router,
     private userService: UserService
   ) {
-    {
-    }
+
+
   }
-  onSubmit(form: NgForm) {
-    const login = form.value.login;
-    const password = form.value.password;
-    this.authService.authlogin = login;
+ loginForm= new FormGroup({
+
+    login: new FormControl('',  [
+      Validators.required
+
+    ]),
+    password: new FormControl('',[
+      Validators.required,
+
+    ])
+
+    })
+
+    get getLogin():FormControl{
+      return this.loginForm.get('login') as FormControl
+      }
+
+      get getPassword():FormControl{
+        return this.loginForm.get('password') as FormControl
+        }
+  onSubmit() {
+    const { login, password } = this.loginForm.value;
     this.authService
-      .login(login, password)
-      .pipe(
-        catchError((error) => {
-          return throwError(() => new Error(error));
-        })
-      )
-      .subscribe((resData) => {
+      .login(login, password).subscribe((resData) => {
         localStorage.setItem('token', resData.token);
-        localStorage.setItem('login', login);
+        localStorage.setItem('login', login!);
         this.router.navigate(['/boards']);
         this.userService.getUsers().subscribe((data) => {
           const users = data;
           const user: User = users.filter((user) => user.login === login)[0];
           const userId: string = user._id!;
+          const name = user.name
           localStorage.setItem('id', userId);
+          localStorage.setItem('name', name);
         });
       });
   }
 }
+// .pipe(
+//   catchError((error) => {
+//     return throwError(() => new Error(error));
+//   })
+// )

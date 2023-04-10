@@ -77,3 +77,10 @@ top: 50%;
   .hero__button:hover, .hero__button:focus {
     background-color: #188ce8;
   }
+.jumbotron{
+  height: 600px;
+}
+.container{
+
+margin:auto
+}

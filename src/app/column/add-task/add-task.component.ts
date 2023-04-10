@@ -32,8 +32,8 @@ boardId: string = "";
 
   openDialog(column:any): void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
-      width: '500px',
-      height: '200px',
+      width: '320px',
+      height: '300px',
       data: { title: '', description:'' },
       panelClass: 'custom-dialog-container',
     });

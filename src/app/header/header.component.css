@@ -1,6 +1,6 @@
 header{
     padding: 10px 0;
-    background-color: #222;
+
 }
 ul{
     padding: 0;
@@ -34,7 +34,7 @@ div.logo a:hover{
     transition: 0.4s ease-out;
 }
 button{
-    background-color: transparent;
+    background-color: transparent !important;
     border: none;
     color: white;
 }
