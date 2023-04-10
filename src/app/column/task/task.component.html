@@ -1,1 +1,8 @@
-<h1>{{task.title}}</h1>
+<div class="task"> <h1 (click)="editTask(task)">
+  {{ task.title }}
+</h1>
+
+<button class="btn-trash" (click)="deleteTask(task)">
+    <fa-icon class="trash" [icon]="trash"></fa-icon>
+  </button>
+</div>

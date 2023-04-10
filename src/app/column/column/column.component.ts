@@ -23,7 +23,7 @@ constructor(private columnService:ColumnService, private dialog:MatDialog, priva
 }
 ngOnInit(): void {
   this.boardId = this.route.snapshot.paramMap.get('id') || "";
-  console.log(this.column)
+
 }
 onSubmit(form:NgForm){
   const { title } = form.value;

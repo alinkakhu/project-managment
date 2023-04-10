@@ -8,7 +8,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 import { Board, BoardTitle } from 'src/app/shared/interfaces/board.interface';
 import { BoardService } from 'src/app/shared/services/board.service';
 import { AuthService } from 'src/app/auth/auth.service';
-import { left } from '@popperjs/core';
+
 @Component({
   selector: 'app-create-board-btn',
   templateUrl: './create-board-btn.component.html',

@@ -15,6 +15,7 @@ import { TaskComponent } from './task/task.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+import { TaskDeleteComponent } from './task-delete/task-delete.component';
 @NgModule({
   declarations: [
     ColumnComponent,
@@ -25,7 +26,8 @@ import { TaskDialogComponent } from './task-dialog/task-dialog.component';
     TaskComponent,
     TaskListComponent,
     AddTaskComponent,
-    TaskDialogComponent
+    TaskDialogComponent,
+    TaskDeleteComponent
   ],
   imports: [
     CommonModule,

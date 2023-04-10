@@ -41,4 +41,31 @@ export class TaskService {
         "Authorization": "Bearer " + this.authService.getToken()
     }});
   }
+
+  deleteTask(boardId: string | undefined, columnId: string | undefined, taskId: string | undefined) {
+    const url = `http://localhost:4402/boards/${boardId}/columns/${columnId}/tasks/${taskId}`;
+    return this.http.delete<Task>(url,
+      {
+        headers: {
+        "Authorization": "Bearer " + this.authService.getToken()
+    }});
+  }
+
+ editTask(task: Task): Observable<Task> {
+    const { title, description, order, users, userId, boardId, columnId, _id } = task;
+    const url = `http://localhost:4402/boards/${boardId}/columns/${columnId}/tasks/${_id}`;
+    return this.http.put<Task>(url, {
+      title,
+      order,
+      description,
+      userId,
+      columnId,
+      users,
+    },
+    {
+      headers: {
+
+        "Authorization": "Bearer " + this.authService.getToken()
+    }} );
+  }
 }

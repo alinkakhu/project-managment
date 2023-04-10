@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 import { BoardService } from '../shared/services/board.service';
+import { CreateBoardBtnComponent } from '../boards/create-board-btn/create-board-btn.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

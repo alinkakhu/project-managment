@@ -3,8 +3,8 @@ export interface Task {
     title: string;
     order: number;
     description: string;
-    userId: string;
+    userId: string | undefined | null;
     boardId: string;
-    columnId: string;
+    columnId: string | undefined | null;
     users: string[];
   }
