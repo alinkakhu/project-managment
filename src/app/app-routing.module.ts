@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { EditProfileComponent } from './auth/edit-profile/edit-profile.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { BoardModule } from './boards/board.module';
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'welcome-page', component: WelcomePageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent},
+  { path: 'edit', component: EditProfileComponent},
   {
     path: 'boards',
  loadChildren: () => import('./boards/board.module').then((m) => m.BoardModule),

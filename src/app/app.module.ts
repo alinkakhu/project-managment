@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { BoardModule } from './boards/board.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditProfileComponent } from './auth/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     WelcomePageComponent,
     HeaderComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    EditProfileComponent
 
 
 

@@ -1,5 +1,6 @@
 .card{
     width: 400px;
+   min-height: 200px;
 }
 input{
     width: 60%;
@@ -28,3 +29,5 @@ fa-icon{
 .trash {
     font-size: 16px;
 }
+
+
