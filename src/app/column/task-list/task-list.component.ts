@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { TaskService } from 'src/app/shared/services/task.service';
 import { Column } from 'src/app/shared/interfaces/column.interface';
+import { CdkDragDrop, CdkDragMove, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
@@ -25,4 +26,7 @@ ngOnInit(): void {
      this.taskList = data
     }, (error)=>{console.log(error)})
 }
+
+
+drop(){}
 }

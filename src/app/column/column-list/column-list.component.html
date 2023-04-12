@@ -1,6 +1,6 @@
 <div class="container"><app-add-column-btn></app-add-column-btn>
-    <div class="column-list">
-        <app-column *ngFor="let column of columns" [column]="column">
+    <div class="column-list" cdkDropList cdkDropListGroup>
+        <app-column *ngFor="let column of columns" [column]="column"  cdkDrag>
 
         </app-column></div>
     </div>

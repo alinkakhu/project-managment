@@ -16,6 +16,7 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 import { TaskDeleteComponent } from './task-delete/task-delete.component';
+import {DragDropModule} from '@angular/cdk/drag-drop'
 @NgModule({
   declarations: [
     ColumnComponent,
@@ -36,7 +37,8 @@ import { TaskDeleteComponent } from './task-delete/task-delete.component';
     MatButtonModule,
     MatFormFieldModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    DragDropModule
 
   ],
   exports:[ColumnListComponent]

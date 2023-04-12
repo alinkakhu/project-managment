@@ -42,7 +42,7 @@ get getLogin():FormControl{
 
     const { name, login, password } = this.registerForm.value;
 
-    this.authService.signup(name, login, password).subscribe(
+    this.authService.signup(login, password, name).subscribe(
       (resData) => {console.log(resData)},
       (error) => console.log(error)
     );

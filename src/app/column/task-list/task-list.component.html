@@ -1,1 +1,16 @@
-<div class="task-list"><app-task   *ngFor="let task of taskList" [task]="task" [column]="column"></app-task></div>
+<div
+  class="task-list"
+  cdkDropList
+  [cdkDropListData]="taskList"
+
+  (cdkDropListDropped)="drop()"
+>
+
+
+  <app-task
+    *ngFor="let task of taskList"
+    [task]="task"
+    [column]="column"
+    cdkDrag
+  ></app-task>
+</div>

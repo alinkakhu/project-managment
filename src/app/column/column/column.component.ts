@@ -6,6 +6,9 @@ import { faXmark, faCheck, faTrash} from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { Dialog } from 'src/app/boards/delete-dialog/delete-dialog.component';
 import { ActivatedRoute } from '@angular/router';
+import { CdkDragDrop, CdkDragMove, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { TaskService } from 'src/app/shared/services/task.service';
+import { Task } from 'src/app/shared/interfaces/task.interface';
 @Component({
   selector: 'app-column',
   templateUrl: './column.component.html',
@@ -18,11 +21,15 @@ xmark:any = faXmark
 check:any = faCheck
 trash:any = faTrash;
 boardId: string = "";
-constructor(private columnService:ColumnService, private dialog:MatDialog, private route:ActivatedRoute){
+taskList:any
+constructor(private columnService:ColumnService, private dialog:MatDialog, private route:ActivatedRoute, private taskService:TaskService){
 
 }
 ngOnInit(): void {
   this.boardId = this.route.snapshot.paramMap.get('id') || "";
+  this.taskService.getTaskById(this.boardId,this.column._id).subscribe((data)=>{
+    this.taskList = data
+   }, (error)=>{console.log(error)})
 
 }
 onSubmit(form:NgForm){
@@ -57,4 +64,5 @@ deleteColumn(column:any){
   })
 
 }
+
 }

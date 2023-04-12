@@ -6,11 +6,12 @@ import { RegistrationComponent } from './registration/registration.component';
 import { EditProfileComponent } from './auth/edit-profile/edit-profile.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { BoardModule } from './boards/board.module';
+import { LoginGuard } from './login/login.guard';
 const routes: Routes = [
   { path: '', redirectTo: '/welcome-page', pathMatch: 'full' },
   { path: 'welcome-page', component: WelcomePageComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegistrationComponent},
+  { path: 'login', component: LoginComponent, canActivate:[LoginGuard] },
+  { path: 'register', component: RegistrationComponent, canActivate:[LoginGuard]},
   { path: 'edit', component: EditProfileComponent},
   {
     path: 'boards',
