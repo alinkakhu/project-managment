@@ -1,84 +1,9 @@
-.hero__title {
-    margin-bottom: 30px;
-    font-family: 'Roboto';
-    color: #ffffff;
-    font-weight: 900;
-    line-height: 1.62;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin: 0 auto;
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    font-size: 25px;
-  }
-
-
-
-
-
-  .hero {
-    border-bottom: 1px solid #ececec;
-    margin-bottom: 0;
-  }
-
-  section.hero {
-    position: relative;
-    background-color: #2f303a;
-    color: #ffffff;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    text-align: center;
-    padding-top: 118px;
-    padding-bottom: 118px;
-text-align: center;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-
-    section.hero {
-      max-width: 1600px;
-      margin-left: auto;
-      margin-right: auto;
-      height: 600px;
-    }
-
-
-
-
-    section.hero {
-      background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/assets/apple.jpg);
-    }
-
-
-  .hero__button {
-position: absolute;
-left: 50%;
-top: 50%;
-    background-color: #2196f3;
-    color: #ffffff;
-    font-size: 16px;
-    line-height: 1.88;
-    border: none;
-    min-height: 50px;
-    min-width: 200px;
-    padding: 10px 32px;
-    font-family: "Roboto", sans-serif;
-    font-weight: bold;
-    letter-spacing: 0.06em;
-    cursor: pointer;
-            box-shadow: 0px 4px 4px 0px #00000026;
-    border-radius: 4px;
-    margin-top: 30px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translate(-50%, -50%);
-  }
-
-  .hero__button:hover, .hero__button:focus {
-    background-color: #188ce8;
-  }
+.row{
+  justify-content: center;
+}
 .jumbotron{
   height: 600px;
+  background-color: white;
 }
 .container{
 

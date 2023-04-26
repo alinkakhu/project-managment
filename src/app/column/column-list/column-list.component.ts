@@ -4,6 +4,10 @@ import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Column } from 'src/app/shared/interfaces/column.interface';
+import { CdkDragDrop, CdkDragMove, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/auth/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-column-list',
   templateUrl: './column-list.component.html',
@@ -14,26 +18,57 @@ export class ColumnListComponent implements OnInit {
   order: number = 0;
   boardId: string = "";
   board: any = {};
-  columns!: Column[]
+  columns: Column[]=[];
+requestObj:any=[]
+
   constructor(private columnService:ColumnService,
     private router:Router,
-    private route:ActivatedRoute){}
+    private route:ActivatedRoute,
+    private http:HttpClient,
+    private authService:AuthService,
+    private translate:TranslateService){this.translate.setDefaultLang('en');}
 
   ngOnInit(): void {
+    const lang = this.authService.getLang()
+    this.translate.use(lang!)
     this.boardId = this.route.snapshot.paramMap.get('id') || "";
   this.columnService.getColumns(this.boardId).subscribe((data)=>{
-     this.columns = data
+     this.columns = data.sort((a, b) => a.order - b.order)
+
     }, (error)=>{console.log(error)})
+
   }
 
-// createColumn(){
-// const column ={
-//   title: 'New column',
-//   order: this.order,
-//   boardId:this.boardId
-// }
-// this.columnService.createColumn(column).subscribe((data)=>{
-//   console.log(data)
-// }, (error)=>{console.log(error)})
-// }
+updateData(data:any){
+  this.columns= data
+}
+
+drop(event:CdkDragDrop<Column[]>){
+let orderStart = 0;
+  if (event.previousContainer === event.container) {
+    moveItemInArray(this.columns, event.previousIndex, event.currentIndex);
+
+this.columns.forEach((col)=>{
+  col.order = orderStart++
+   this.http.patch('http://localhost:4402/columnsSet', [{_id:col._id,order:col.order}], {
+  headers: {
+  "Authorization": "Bearer " + this.authService.getToken()
+ }}).subscribe((data)=>{}, (error)=>{console.log(error)})
+
+})
+
+
+} else {
+
+  transferArrayItem(
+
+    event.previousContainer.data,
+    event.container.data,
+    event.previousIndex,
+    event.currentIndex,
+  );
+
+}
+
+}
 }

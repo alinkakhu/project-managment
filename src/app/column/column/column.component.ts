@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Column } from 'src/app/shared/interfaces/column.interface';
 import { NgForm } from '@angular/forms';
 import { ColumnService } from 'src/app/shared/services/column.service';
@@ -16,12 +16,14 @@ import { Task } from 'src/app/shared/interfaces/task.interface';
 })
 export class ColumnComponent implements OnInit {
 @Input() column!:Column
+@Output() deleteEvent = new EventEmitter()
 inputVisible: boolean = false;
 xmark:any = faXmark
 check:any = faCheck
 trash:any = faTrash;
 boardId: string = "";
-taskList:any
+taskList:any;
+
 constructor(private columnService:ColumnService, private dialog:MatDialog, private route:ActivatedRoute, private taskService:TaskService){
 
 }
@@ -56,7 +58,7 @@ cancel() {
 deleteColumn(column:any){
   Dialog.confirm(this.dialog, async () => {
     this.columnService.deleteColumn(this.boardId, column._id).subscribe((data)=>{
-      console.log(data)
+      this.columnService.getColumns(this.boardId).subscribe((data)=> this.deleteEvent.emit(data))
     },
     (error)=>{
       console.log(error)

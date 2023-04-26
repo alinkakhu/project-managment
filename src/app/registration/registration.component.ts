@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -9,7 +9,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./registration.component.css'],
 })
 export class RegistrationComponent {
-  constructor(private authService: AuthService) {}
+  error:any
+
+  constructor(private authService: AuthService, private router:Router) {}
 
 registerForm= new FormGroup({
 name: new FormControl('',  [
@@ -44,7 +46,13 @@ get getLogin():FormControl{
 
     this.authService.signup(login, password, name).subscribe(
       (resData) => {console.log(resData)},
-      (error) => console.log(error)
+      (error) => {console.log(error)
+        this.router.navigate(['/login']);
+        this.error = error.error.message}
     );
+  }
+  close(){
+    console.log('gffhf')
+    this.error = ''
   }
 }

@@ -3,6 +3,7 @@ import { Board, BoardTitle } from '../interfaces/board.interface';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/auth/auth.service';
+import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -41,6 +42,13 @@ export class BoardService {
         "Authorization": "Bearer " + this.authService.getToken()
       }
   });
+  }
+  private _listeners = new Subject<any>();
+  listen(): Observable<any>{
+return this._listeners.asObservable()
+  }
+  filter(filterBy:any){
+this._listeners.next(filterBy)
   }
 
 }

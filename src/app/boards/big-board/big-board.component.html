@@ -1,5 +1,6 @@
 
-<button type="button" class="btn btn-primary" routerLink="/boards">Back</button>
-<h1>{{board.title}}</h1>
+<button type="button" class="btn btn-primary" routerLink="/boards">{{'back'| translate}}</button>
+
+<h1>{{board?.title}}</h1>
 
 <app-column-list></app-column-list>

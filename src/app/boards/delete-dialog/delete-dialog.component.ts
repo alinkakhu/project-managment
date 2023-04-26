@@ -1,5 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { BoardService } from 'src/app/shared/services/board.service';
 
 export class Dialog {
   public static confirm(dialog: MatDialog, subscription: Function): void {
@@ -25,7 +26,7 @@ export class Dialog {
 export class DeleteDialogComponent {
   title: string;
   message: string;
-
+@Output() addEvent =new EventEmitter()
   constructor(
     private dialogRef: MatDialogRef<DeleteDialogComponent>,
     @Inject(MAT_DIALOG_DATA) private data: DialogModel) {
@@ -35,6 +36,7 @@ export class DeleteDialogComponent {
 
   onConfirm() {
     this.dialogRef.close(true);
+
   }
 
   onDismiss(): void {

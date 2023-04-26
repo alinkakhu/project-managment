@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Task } from 'src/app/shared/interfaces/task.interface';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
@@ -22,6 +22,7 @@ export class TaskComponent implements OnInit {
     title: '',
     description: '',
   };
+  @Output() deleteEvent = new EventEmitter()
   constructor(
     private dialog: MatDialog,
     private taskService: TaskService,
@@ -38,6 +39,9 @@ export class TaskComponent implements OnInit {
         .subscribe(
           (data) => {
             console.log(data);
+            this.taskService.getTaskById(this.boardId, this.column?._id).subscribe((data)=>{
+              this.deleteEvent.emit(data)
+            })
           },
           (error) => {
             console.log(error);

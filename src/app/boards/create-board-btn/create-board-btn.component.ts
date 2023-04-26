@@ -8,7 +8,9 @@ import { DialogComponent } from '../dialog/dialog.component';
 import { Board, BoardTitle } from 'src/app/shared/interfaces/board.interface';
 import { BoardService } from 'src/app/shared/services/board.service';
 import { AuthService } from 'src/app/auth/auth.service';
-
+import { Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 @Component({
   selector: 'app-create-board-btn',
   templateUrl: './create-board-btn.component.html',
@@ -17,6 +19,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class CreateBoardBtnComponent {
   title!: string;
   board: BoardTitle = this.boardService.board;
+  @Output() addEvent = new EventEmitter();
   constructor(
     public dialog: MatDialog,
     private boardService: BoardService,
@@ -41,7 +44,7 @@ export class CreateBoardBtnComponent {
 
       this.boardService.createBoard(this.board).subscribe(
         (data) => {
-          console.log(data);
+          this.boardService.boards=this.boardService.filter(data)
         },
         (error) => {
           console.log(error);
@@ -49,4 +52,5 @@ export class CreateBoardBtnComponent {
       );
     });
   }
+
 }

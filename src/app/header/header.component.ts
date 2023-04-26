@@ -3,6 +3,9 @@ import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 import { BoardService } from '../shared/services/board.service';
 import { CreateBoardBtnComponent } from '../boards/create-board-btn/create-board-btn.component';
+import { TranslateService } from '@ngx-translate/core';
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,11 +13,15 @@ import { CreateBoardBtnComponent } from '../boards/create-board-btn/create-board
 })
 export class HeaderComponent implements OnInit {
   name:any =this.getName()
+  boards:any = this.boardsService.boards
   constructor(
     private auth: AuthService,
     private router: Router,
-    private boardService: BoardService
-  ) {}
+    public translate:TranslateService,
+    private boardsService:BoardService
+  ) {
+
+  }
 
   ngOnInit(): void {
 
@@ -31,5 +38,6 @@ getName(){
     localStorage.removeItem('id');
     this.router.navigate(['/welcome-page']);
   }
+
 
 }

@@ -4,9 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-import { HeaderComponent } from './header/header.component';
+
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,19 +14,28 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { BoardModule } from './boards/board.module';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditProfileComponent } from './auth/edit-profile/edit-profile.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { FooterComponent } from './footer/footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { LanguageSwitcherComponent } from './shared/language-switcher/language-switcher.component';
 
+import { BoardModule } from './boards/board.module';
 @NgModule({
   declarations: [
     AppComponent,
     WelcomePageComponent,
-    HeaderComponent,
+HeaderComponent,
+LanguageSwitcherComponent,
     LoginComponent,
     RegistrationComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    FooterComponent
 
 
 
@@ -45,7 +53,22 @@ AppRoutingModule,
     MatInputModule,
     BoardModule,
     FontAwesomeModule,
-ReactiveFormsModule
+ReactiveFormsModule,
+BoardModule,
+
+TranslateModule.forRoot({
+  loader: {
+    provide: TranslateLoader,
+    useFactory: httpTranslateLoader,
+    deps: [HttpClient]
+  }
+})
+
+
+
+
+
+
 
 
   ],
@@ -54,3 +77,7 @@ ReactiveFormsModule
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

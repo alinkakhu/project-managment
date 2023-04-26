@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class ColumnService {
 column!:any
+
   constructor(private http:HttpClient, private authService:AuthService) { }
   getColumns(boardId: string | undefined): Observable<Column[]> {
     const url = `http://localhost:4402/boards/${boardId}/columns`;

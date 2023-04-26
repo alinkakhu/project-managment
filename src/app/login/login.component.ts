@@ -3,22 +3,24 @@ import { Component } from '@angular/core';
 import { AuthService, User } from '../auth/auth.service';
 
 import { Router } from '@angular/router';
-import { catchError, throwError } from 'rxjs';
+
 import { UserService } from '../shared/services/user.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BoardService } from '../shared/services/board.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  error:any
+
   constructor(
     private authService: AuthService,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private boaedService:BoardService
   ) {
-
-
   }
  loginForm= new FormGroup({
 
@@ -46,7 +48,8 @@ export class LoginComponent {
       .login(login, password).subscribe((resData) => {
         localStorage.setItem('token', resData.token);
         localStorage.setItem('login', login!);
-        this.router.navigate(['/boards']);
+
+
         this.userService.getUsers().subscribe((data) => {
           const users = data;
           const user: User = users.filter((user) => user.login === login)[0];
@@ -54,8 +57,20 @@ export class LoginComponent {
           const name = user.name
           localStorage.setItem('id', userId);
           localStorage.setItem('name', name);
+
+          this.boaedService.getBoards(userId)
+          this.router.navigate(['/boards']);
         });
+
+      }, (error)=>{
+        console.log(error)
+        this.error = error.error.message
       });
+
+  }
+  close(){
+
+    this.error = ''
   }
 }
 // .pipe(

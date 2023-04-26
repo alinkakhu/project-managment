@@ -9,6 +9,8 @@
 <div class="col-md-9 col-sm-9 col-9 text-end">
 <nav >
 
+    <app-language-switcher></app-language-switcher>
+
 <ul *ngIf="!isLogged()">
     <li><button
         mat-raised-button
@@ -19,7 +21,7 @@
         ariaCurrentWhenActive="page"
         i18n
       >
-        Login
+       {{'login' | translate}}
       </button></li>
     <li><button
         mat-raised-button
@@ -30,22 +32,23 @@
         ariaCurrentWhenActive="page"
         i18n
       >
-        Sign up
+       {{'signUp' | translate}}
       </button></li>
 </ul>
-<button *ngIf="isLogged()" routerLink="/boards">Boards</button>
-<app-create-board-btn *ngIf="isLogged()"></app-create-board-btn>
+<button *ngIf="isLogged()" routerLink="/boards">{{'boards'| translate}}</button>
+<app-create-board-btn  *ngIf="isLogged()"></app-create-board-btn>
 
 <div *ngIf="isLogged()"class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   {{name}}
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="/edit">edit</a>
-    <button class="dropdown-item" (click)="logout()">logout</button>
+    <a class="dropdown-item" href="/edit">{{'edit'| translate}}</a>
+    <button class="dropdown-item" (click)="logout()">{{'logout'| translate}}</button>
 
   </div>
 </div>
+
 </nav>
 </div>
 </div>

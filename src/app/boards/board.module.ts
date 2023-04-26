@@ -15,6 +15,10 @@ import { FormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BoardsRoutingModule } from './boards-routing.module';
 import { ColumnModule } from '../column/column.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     BoardComponent,
@@ -35,9 +39,19 @@ BoardsRoutingModule,
     FormsModule,
     RouterModule,
     ColumnModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (boardhttpTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
 
 
   ],
   exports:[ CreateBoardBtnComponent]
 })
 export class BoardModule { }
+export function boardhttpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, '../../assets/i18n/', '.json');
+}

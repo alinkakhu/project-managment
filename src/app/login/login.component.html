@@ -1,14 +1,16 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-
+  <div class="alert alert-danger error" role="alert" *ngIf="error">
+ <p>{{ error}}</p>    <button (click)="close()" type="button" class="btn-close" disabled aria-label="Close" ></button>
+  </div>
     <div class="form-outline mb-4">
-      <label class="form-label" for="form2Example1">Login</label>
+      <label class="form-label" for="form2Example1">{{'login2'| translate}}</label>
       <input type="login" id="form2Example1" class="form-control" formControlName ="login"/>
 
       <div class="form-text text-danger" *ngIf="getLogin.errors?.['required'] && (getLogin.touched || getLogin.dirty)">Login is required</div>
     </div>
 
     <div class="form-outline mb-4">
-      <label class="form-label" for="form2Example2">Password</label>
+      <label class="form-label" for="form2Example2">{{'password'| translate}}</label>
       <input type="password" id="form2Example2" class="form-control" formControlName="password"/>
 
       <div class="form-text text-danger" *ngIf="getPassword.errors?.['required'] && (getPassword.touched || getPassword.dirty)">Password is required</div>
@@ -16,10 +18,10 @@
 
 
 
-    <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!loginForm.valid">Login</button>
+    <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!loginForm.valid">{{'login'| translate}}</button>
 
     <div class="text-center">
-      <p>Not a member? <a href="/register">Register</a></p>
+      <p>{{'notmember'| translate}} <a href="/register">{{'signUp'| translate}}</a></p>
 
     </div>
   </form>

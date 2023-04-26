@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Task } from '../interfaces/task.interface';
+import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -33,16 +34,16 @@ export class TaskService {
     boardId: string | undefined,
     columnId: string | undefined
 
-  ): Observable<Task> {
+  ): Observable<unknown> {
     const url = `http://localhost:4402/boards/${boardId}/columns/${columnId}/tasks`;
-    return this.http.get<Task>(url,
+    return this.http.get<unknown>(url,
       {
         headers: {
         "Authorization": "Bearer " + this.authService.getToken()
     }});
   }
 
-  deleteTask(boardId: string | undefined, columnId: string | undefined, taskId: string | undefined) {
+  deleteTask(boardId: string | undefined | null, columnId: string | undefined | null, taskId: string | undefined) {
     const url = `http://localhost:4402/boards/${boardId}/columns/${columnId}/tasks/${taskId}`;
     return this.http.delete<Task>(url,
       {
@@ -68,4 +69,12 @@ export class TaskService {
         "Authorization": "Bearer " + this.authService.getToken()
     }} );
   }
+  private _listeners = new Subject<any>();
+  listen(): Observable<any>{
+return this._listeners.asObservable()
+  }
+  filter(filterBy:any){
+this._listeners.next(filterBy)
+  }
+
 }

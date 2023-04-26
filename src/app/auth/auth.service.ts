@@ -29,7 +29,14 @@ export class AuthService {
       }
     );
   }
-
+autoLogout(expirationData:number){
+setTimeout(()=>{
+  this.logout()
+},expirationData)
+}
+getLang(){
+  return localStorage.getItem('language');
+}
   isLoggedIn() {
     return localStorage.getItem('token');
   }

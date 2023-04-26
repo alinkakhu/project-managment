@@ -1,6 +1,21 @@
-<div class="container"><app-add-column-btn></app-add-column-btn>
-    <div class="column-list" cdkDropList cdkDropListGroup>
-        <app-column *ngFor="let column of columns" [column]="column"  cdkDrag>
+<div class="container">
+  <app-add-column-btn
+    [length]="columns.length"
+    (addEvent)="updateData($event)"
+  ></app-add-column-btn>
+  <div
+    class="column-list"
+    cdkDropList
+    (cdkDropListDropped)="drop($event)"
+    cdkDropListGroup
+  >
+ <app-column
+    (deleteEvent)="updateData($event)"
+    *ngFor="let column of columns"
+    [column]="column"
+    cdkDrag
+  >
+  </app-column>
 
-        </app-column></div>
-    </div>
+  </div>
+</div>

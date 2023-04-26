@@ -8,6 +8,7 @@
     margin-right: auto;
     margin-left: auto;
     flex-wrap: wrap;
+    height: 70%;
 }
 
 @media screen and (min-width: 480px) {

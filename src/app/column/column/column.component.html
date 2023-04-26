@@ -1,8 +1,14 @@
 <div class="card border-primary mb-3" style="max-width: 18rem">
-    <div class="title-area"> <div class="card-header" *ngIf="!inputVisible" (click)="updateTitle()">
-        {{ column.title }}
+    <div class="title-area">
+      <ng-container *ngIf="column.title">
+        <div class="card-header" *ngIf="!inputVisible" (click)="updateTitle()">
+          {{ column.title }}
 
-      </div>
+        </div>
+
+
+      </ng-container>
+
       <form #form="ngForm" (ngSubmit)="onSubmit(form)" *ngIf="inputVisible">
         <input name="title" class="form-control" ngModel name="title" />
 
@@ -18,10 +24,10 @@
       </button></div>
 
 
-  <div class="card-body text-primary" cdkDropListGroup>
+  <div class="card-body text-primary" >
    <app-task-list [column]="column"></app-task-list>
 
 
   </div>
-<div class="card-footer">  <app-add-task [column]="column"></app-add-task></div>
+<div class="card-footer">  <app-add-task  [column]="column"></app-add-task></div>
 </div>

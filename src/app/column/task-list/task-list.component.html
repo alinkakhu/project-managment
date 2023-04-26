@@ -2,15 +2,15 @@
   class="task-list"
   cdkDropList
   [cdkDropListData]="taskList"
-
-  (cdkDropListDropped)="drop()"
+  (cdkDropListDropped)="drop($event)"
 >
 
 
   <app-task
+   (deleteEvent)="updateData($event)"
+  cdkDrag
     *ngFor="let task of taskList"
     [task]="task"
     [column]="column"
-    cdkDrag
   ></app-task>
 </div>

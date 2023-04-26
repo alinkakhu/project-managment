@@ -5,7 +5,9 @@ import { TaskService } from 'src/app/shared/services/task.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { Column } from 'src/app/shared/interfaces/column.interface';
-
+import { LanguageService } from 'src/app/shared/services/language.service';
+import { TranslateService } from '@ngx-translate/core';
+import { Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
@@ -19,14 +21,18 @@ export class AddTaskComponent implements OnInit{
 task:any = this.taskService.task;
 order: number = 0;
 boardId: string = "";
+@Output() addTask = new EventEmitter();
 @Input() column: Column | null | undefined = null;
   constructor(
     public dialog: MatDialog,
     private taskService:TaskService,
     private authService: AuthService,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private langService:LanguageService,
+    private translate:TranslateService
   ) {}
   ngOnInit(): void {
+    this.langService.localEvent.subscribe((locale)=>this.translate.use(locale))
     this.boardId = this.route.snapshot.paramMap.get('id') || "";
   }
 
@@ -54,6 +60,8 @@ this.myData.description = result.description
       this.taskService.createTask(this.task).subscribe(
         (data) => {
           console.log(data.columnId);
+          this.taskService.getTaskById(this.boardId, this.column?._id).subscribe((data)=>
+         this.taskService.filter(data))
         },
         (error) => {
           console.log(error);
