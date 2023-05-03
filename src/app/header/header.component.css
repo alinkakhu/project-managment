@@ -1,43 +1,41 @@
-header{
-    padding: 10px 0;
-
+header {
+  padding: 10px 0;
 }
-ul{
-    padding: 0;
-margin: 12px 0;
-
+ul {
+  padding: 0;
+  margin: 12px 0;
 }
-li{
-    list-style: none;
-    color: #fff;
-    display: inline-block;
-    font-size: 20px;
-    margin-left: 24px;
+li {
+  list-style: none;
+  color: #fff;
+  display: inline-block;
+  font-size: 20px;
+  margin-left: 24px;
 }
-ul li:hover{
-    color: lightgray;
-    cursor: pointer;
-    transition: 0.4s ease-out;
+ul li:hover {
+  color: lightgray;
+  cursor: pointer;
+  transition: 0.4s ease-out;
 }
-a{
-    text-decoration: none;
-    color: #fff;
+a {
+  text-decoration: none;
+  color: #fff;
 }
-div.logo{
-    margin: 12px 0;
-    font-size: 24px;
-    font-weight: bold;
+div.logo {
+  margin: 12px 0;
+  font-size: 24px;
+  font-weight: bold;
 }
-div.logo a:hover{
-    color: lightgray;
-    cursor: pointer;
-    transition: 0.4s ease-out;
+div.logo a:hover {
+  color: lightgray;
+  cursor: pointer;
+  transition: 0.4s ease-out;
 }
-button{
-    background-color: transparent !important;
-    border: none;
-    color: white;
+button {
+  background-color: transparent !important;
+  border: none;
+  color: white;
 }
-.dropdown-item{
-    color: black;
+.dropdown-item {
+  color: black;
 }

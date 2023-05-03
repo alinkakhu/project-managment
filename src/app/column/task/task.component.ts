@@ -22,7 +22,7 @@ export class TaskComponent implements OnInit {
     title: '',
     description: '',
   };
-  @Output() deleteEvent = new EventEmitter()
+  @Output() deleteEvent = new EventEmitter();
   constructor(
     private dialog: MatDialog,
     private taskService: TaskService,
@@ -38,14 +38,13 @@ export class TaskComponent implements OnInit {
         .deleteTask(this.boardId, this.column?._id, task._id)
         .subscribe(
           (data) => {
-            console.log(data);
-            this.taskService.getTaskById(this.boardId, this.column?._id).subscribe((data)=>{
-              this.deleteEvent.emit(data)
-            })
+            this.taskService
+              .getTaskById(this.boardId, this.column?._id)
+              .subscribe((data) => {
+                this.deleteEvent.emit(data);
+              });
           },
-          (error) => {
-            console.log(error);
-          }
+          (error) => {}
         );
     });
   }
@@ -69,17 +68,13 @@ export class TaskComponent implements OnInit {
         users: [],
         boardId: this.boardId,
         columnId: this.column?._id,
-         _id:task._id
+        _id: task._id,
       };
 
-
-    this.taskService.editTask(this.task).subscribe((data)=>{
-      console.log(data)
-    }, (error)=>{
-      console.log(error)
-    } )
+      this.taskService.editTask(this.task).subscribe(
+        (data) => {},
+        (error) => {}
+      );
     });
   }
-
-
 }

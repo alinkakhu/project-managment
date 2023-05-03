@@ -4,17 +4,17 @@
   box-sizing: border-box;
 }
 select {
-    appearance: none;
-color: white;
-    background-color: transparent;
-    border: 1px solid white;
-    padding: 5px 10px;
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    cursor: inherit;
-    line-height: inherit;
-  }
-  option{
-    color: black;
-  }
+  appearance: none;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 5px 10px;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+option {
+  color: black;
+}

@@ -11,13 +11,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BoardsRoutingModule } from './boards-routing.module';
 import { ColumnModule } from '../column/column.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,11 +27,10 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     CreateBoardBtnComponent,
     DeleteDialogComponent,
     DialogComponent,
-
   ],
   imports: [
     CommonModule,
-BoardsRoutingModule,
+    BoardsRoutingModule,
     MatDialogModule,
     MatButtonModule,
     MatFormFieldModule,
@@ -42,16 +41,14 @@ BoardsRoutingModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (boardhttpTranslateLoader),
-        deps: [HttpClient]
-      }
-    })
-
-
+        useFactory: boardhttpTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
   ],
-  exports:[ CreateBoardBtnComponent]
+  exports: [CreateBoardBtnComponent],
 })
-export class BoardModule { }
+export class BoardModule {}
 export function boardhttpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../../assets/i18n/', '.json');
 }

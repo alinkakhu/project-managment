@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 export interface User {
   _id?: string;
@@ -28,6 +29,7 @@ export class AuthService {
         password,
       }
     );
+
   }
 autoLogout(expirationData:number){
 setTimeout(()=>{
@@ -41,7 +43,8 @@ getLang(){
     return localStorage.getItem('token');
   }
   logout() {
-    localStorage.removeItem('token');
+    localStorage.clear()
+
   }
   getToken() {
     return localStorage.getItem('token');

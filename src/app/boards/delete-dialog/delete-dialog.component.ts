@@ -1,15 +1,18 @@
 import { Component, EventEmitter, Inject, Output } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { BoardService } from 'src/app/shared/services/board.service';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 
 export class Dialog {
   public static confirm(dialog: MatDialog, subscription: Function): void {
     const dialogRef = dialog.open(DeleteDialogComponent, {
       width: '500px',
       height: '200px',
-      data: new DialogModel("", "")
+      data: new DialogModel('', ''),
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result === true) {
         subscription();
       }
@@ -17,26 +20,25 @@ export class Dialog {
   }
 }
 
-
 @Component({
   selector: 'app-delete-dialog',
   templateUrl: './delete-dialog.component.html',
-  styleUrls: ['./delete-dialog.component.css']
+  styleUrls: ['./delete-dialog.component.css'],
 })
 export class DeleteDialogComponent {
   title: string;
   message: string;
-@Output() addEvent =new EventEmitter()
+  @Output() addEvent = new EventEmitter();
   constructor(
     private dialogRef: MatDialogRef<DeleteDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: DialogModel) {
+    @Inject(MAT_DIALOG_DATA) private data: DialogModel
+  ) {
     this.title = data.title;
     this.message = data.message;
   }
 
   onConfirm() {
     this.dialogRef.close(true);
-
   }
 
   onDismiss(): void {
@@ -45,8 +47,5 @@ export class DeleteDialogComponent {
 }
 
 export class DialogModel {
-  constructor(public title: string, public message: string) {
-  }
+  constructor(public title: string, public message: string) {}
 }
-
-

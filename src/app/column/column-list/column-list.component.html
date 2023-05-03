@@ -9,13 +9,12 @@
     (cdkDropListDropped)="drop($event)"
     cdkDropListGroup
   >
- <app-column
-    (deleteEvent)="updateData($event)"
-    *ngFor="let column of columns"
-    [column]="column"
-    cdkDrag
-  >
-  </app-column>
-
+    <app-column
+      (deleteEvent)="updateData($event)"
+      *ngFor="let column of columns"
+      [column]="column"
+      cdkDrag
+    >
+    </app-column>
   </div>
 </div>

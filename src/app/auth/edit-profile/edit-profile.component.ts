@@ -17,7 +17,7 @@ export class EditProfileComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private userService: UserService,
-    private dialog:MatDialog,
+    private dialog: MatDialog,
     private router: Router
   ) {}
 
@@ -82,16 +82,16 @@ export class EditProfileComponent implements OnInit {
   openDialog() {
     Dialog.confirm(this.dialog, async () => {
       const id = this.id;
-       this.userService.deleteUser(id).subscribe(
-       (data) => {
-           console.log('user deleted');
-           this.authService.logout()
-           this.router.navigate(['/welcome-page'])
-       },
+      this.userService.deleteUser(id).subscribe(
+        (data) => {
+          console.log('user deleted');
+          this.authService.logout();
+          this.router.navigate(['/welcome-page']);
+        },
         (error) => {
           console.log(error);
-       }
+        }
       );
-     });
+    });
   }
 }

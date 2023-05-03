@@ -1,16 +1,12 @@
-import { Component, Inject } from '@angular/core';
-import {
-  MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
-import { Board, BoardTitle } from 'src/app/shared/interfaces/board.interface';
+import { BoardTitle } from 'src/app/shared/interfaces/board.interface';
 import { BoardService } from 'src/app/shared/services/board.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+
 @Component({
   selector: 'app-create-board-btn',
   templateUrl: './create-board-btn.component.html',
@@ -38,19 +34,18 @@ export class CreateBoardBtnComponent {
       console.log('The dialog was closed');
       this.title = result;
 
-      this.board = { title: result,
-      owner: this.authService.getUserId(),
-    users: [] };
+      this.board = {
+        title: result,
+        owner: this.authService.getUserId(),
+        users: [],
+      };
 
       this.boardService.createBoard(this.board).subscribe(
         (data) => {
-          this.boardService.boards=this.boardService.filter(data)
+          this.boardService.boards = this.boardService.filter(data);
         },
-        (error) => {
-          console.log(error);
-        }
+        (error) => {}
       );
     });
   }
-
 }

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BoardService } from 'src/app/shared/services/board.service';
-import { Board, BoardTitle } from 'src/app/shared/interfaces/board.interface';
+import { Board} from 'src/app/shared/interfaces/board.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { Dialog } from '../delete-dialog/delete-dialog.component';
 import { LanguageService } from 'src/app/shared/services/language.service';
@@ -13,13 +13,13 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class BoardComponent implements OnInit {
   @Input() board!: Board;
-  @Output() deleteEvent = new EventEmitter()
+  @Output() deleteEvent = new EventEmitter();
   constructor(
     private boardsService: BoardService,
     private dialog: MatDialog,
     private langService: LanguageService,
     private translate: TranslateService,
-    private auth:AuthService
+    private auth: AuthService
   ) {}
   ngOnInit(): void {
     this.langService.localEvent.subscribe((locale) =>
@@ -30,15 +30,13 @@ export class BoardComponent implements OnInit {
     Dialog.confirm(this.dialog, async () => {
       this.boardsService.deleteBoard(boardtoDelete._id).subscribe(
         (data) => {
-          console.log(boardtoDelete._id);
-          this.boardsService.getBoards(this.auth.getUserId()).subscribe((data)=>{
-            this.deleteEvent.emit(data)
-          })
-
+          this.boardsService
+            .getBoards(this.auth.getUserId())
+            .subscribe((data) => {
+              this.deleteEvent.emit(data);
+            });
         },
-        (error) => {
-          console.log(error);
-        }
+        (error) => {}
       );
     });
   }

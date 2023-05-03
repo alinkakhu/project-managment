@@ -16,10 +16,10 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 import { TaskDeleteComponent } from './task-delete/task-delete.component';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 @NgModule({
   declarations: [
     ColumnComponent,
@@ -31,7 +31,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     TaskListComponent,
     AddTaskComponent,
     TaskDialogComponent,
-    TaskDeleteComponent
+    TaskDeleteComponent,
   ],
   imports: [
     CommonModule,
@@ -46,14 +46,13 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
       loader: {
         provide: TranslateLoader,
         useFactory: httpTranslateLoader,
-        deps: [HttpClient]
-      }
-    })
-
+        deps: [HttpClient],
+      },
+    }),
   ],
-  exports:[ColumnListComponent]
+  exports: [ColumnListComponent],
 })
-export class ColumnModule { }
+export class ColumnModule {}
 export function httpTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(  http, '../../assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, '../../assets/i18n/', '.json');
 }

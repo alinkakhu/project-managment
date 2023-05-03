@@ -1,58 +1,68 @@
 <header class="bg-primary">
-    <div class="container">
-<div class="row ">
-<div class="col-md-3 col-sm-3 col-3">
-<div class="logo">
-<a href="">PMA</a>
-</div>
-</div>
-<div class="col-md-9 col-sm-9 col-9 text-end">
-<nav >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-3">
+        <div class="logo">
+          <a href="">PMA</a>
+        </div>
+      </div>
+      <div class="col-md-9 col-sm-9 col-9 text-end">
+        <nav>
+          <app-language-switcher></app-language-switcher>
 
-    <app-language-switcher></app-language-switcher>
+          <ul *ngIf="!isLogged()">
+            <li>
+              <button
+                mat-raised-button
+                color="accent"
+                [class]="'login-button'"
+                routerLink="/login"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+                i18n
+              >
+                {{ "login" | translate }}
+              </button>
+            </li>
+            <li>
+              <button
+                mat-raised-button
+                color="accent"
+                [class]="'login-button'"
+                routerLink="/register"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+                i18n
+              >
+                {{ "signUp" | translate }}
+              </button>
+            </li>
+          </ul>
+          <button *ngIf="isLogged()" routerLink="/boards">
+            {{ "boards" | translate }}
+          </button>
+          <app-create-board-btn *ngIf="isLogged()"></app-create-board-btn>
 
-<ul *ngIf="!isLogged()">
-    <li><button
-        mat-raised-button
-        color="accent"
-        [class]="'login-button'"
-        routerLink="/login"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        i18n
-      >
-       {{'login' | translate}}
-      </button></li>
-    <li><button
-        mat-raised-button
-        color="accent"
-        [class]="'login-button'"
-        routerLink="/register"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        i18n
-      >
-       {{'signUp' | translate}}
-      </button></li>
-</ul>
-<button *ngIf="isLogged()" routerLink="/boards">{{'boards'| translate}}</button>
-<app-create-board-btn  *ngIf="isLogged()"></app-create-board-btn>
-
-<div *ngIf="isLogged()"class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  {{name}}
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="/edit">{{'edit'| translate}}</a>
-    <button class="dropdown-item" (click)="logout()">{{'logout'| translate}}</button>
-
-  </div>
-</div>
-
-</nav>
-</div>
-</div>
+          <div *ngIf="isLogged()" class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              {{ name }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="/edit">{{ "edit" | translate }}</a>
+              <button class="dropdown-item" (click)="logout()">
+                {{ "logout" | translate }}
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
     </div>
+  </div>
 </header>
-
-

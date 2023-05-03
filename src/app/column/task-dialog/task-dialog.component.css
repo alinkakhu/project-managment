@@ -1,7 +1,7 @@
-.descr input{
-    display: block;
-    margin: 10px;
+.descr input {
+  display: block;
+  margin: 10px;
 }
 textarea {
-    resize: none;
+  resize: none;
 }

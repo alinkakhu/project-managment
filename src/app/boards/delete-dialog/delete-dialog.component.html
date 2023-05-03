@@ -1,11 +1,16 @@
 <div>
-  <h3 i18n mat-dialog-title>{{'sure' | translate}}</h3>
+  <h3 i18n mat-dialog-title>{{ "sure" | translate }}</h3>
 </div>
 <div mat-dialog-content>
-  <button mat-button  (click)="onConfirm()" color="primary" i18n-text text="Yes">
-  {{'yes' | translate}}
+  <button mat-button (click)="onConfirm()" color="primary"   text="Yes">
+    {{ "yes" | translate }}
   </button>
-  <button mat-button  (click)="onDismiss()" color="primary" i18n-text text="Cancel">
-   {{'cancel' | translate}}
+  <button
+    mat-button
+    (click)="onDismiss()"
+    color="primary"
+    text="Cancel"
+  >
+    {{ "cancel" | translate }}
   </button>
 </div>

@@ -1,4 +1,4 @@
-.column-list{
+.column-list {
   display: flex;
   flex: row;
   justify-content: flex-start;
