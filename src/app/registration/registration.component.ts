@@ -47,10 +47,11 @@ export class RegistrationComponent {
     this.authService.signup(login, password, name).subscribe(
       (resData) => {
         console.log(resData);
+        this.router.navigate(['/login']);
       },
       (error) => {
         console.log(error);
-        this.router.navigate(['/login']);
+
         this.error = error.error.message;
       }
     );
