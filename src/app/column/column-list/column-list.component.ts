@@ -58,7 +58,7 @@ export class ColumnListComponent implements OnInit {
         col.order = orderStart++;
         this.http
           .patch(
-            'http://localhost:4402/columnsSet',
+            'http://54.37.138.92:4402/columnsSet',
             [{ _id: col._id, order: col.order }],
             {
               headers: {

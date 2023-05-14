@@ -11,7 +11,7 @@ export class ColumnService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
   getColumns(boardId: string | undefined): Observable<Column[]> {
-    const url = `http://localhost:4402/boards/${boardId}/columns`;
+    const url = `http://54.37.138.92:4402/boards/${boardId}/columns`;
     return this.http.get<Column[]>(url, {
       headers: {
         Authorization: 'Bearer ' + this.authService.getToken(),
@@ -20,7 +20,7 @@ export class ColumnService {
   }
   createColumn(column: Column): Observable<Column> {
     const { boardId, title, order } = column;
-    const url = `http://localhost:4402/boards/${boardId}/columns`;
+    const url = `http://54.37.138.92:4402/boards/${boardId}/columns`;
     return this.http.post<Column>(
       url,
       { title, order },
@@ -33,7 +33,7 @@ export class ColumnService {
   }
   updateColumn(column: Column) {
     const { boardId, _id, title, order } = column;
-    const url = `http://localhost:4402/boards/${boardId}/columns/${_id}`;
+    const url = `http://54.37.138.92:4402/boards/${boardId}/columns/${_id}`;
     return this.http.put<Column>(
       url,
       {
@@ -52,7 +52,7 @@ export class ColumnService {
     boardId: string | undefined,
     columnId: string | undefined
   ): Observable<Column> {
-    const url = `http://localhost:4402/boards/${boardId}/columns/${columnId}`;
+    const url = `http://54.37.138.92:4402/boards/${boardId}/columns/${columnId}`;
     return this.http.delete<Column>(url, {
       headers: {
         Authorization: 'Bearer ' + this.authService.getToken(),

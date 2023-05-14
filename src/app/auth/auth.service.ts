@@ -15,7 +15,7 @@ export class AuthService {
     authlogin:string = '';
   constructor(private http: HttpClient) {}
   signup(login: any, password: any, name: any): Observable<unknown> {
-    return this.http.post('http://localhost:4402/auth/signup', {
+    return this.http.post('http://54.37.138.92:4402/auth/signup', {
       login: login,
       password: password,
       name: name,
@@ -23,7 +23,7 @@ export class AuthService {
   }
   login(login: any, password: any): Observable<{ token: string }> {
     return this.http.post<{ token: string }>(
-      'http://localhost:4402/auth/signin',
+      'http://54.37.138.92:4402/auth/signin',
       {
         login,
         password,

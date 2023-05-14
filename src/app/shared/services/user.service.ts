@@ -9,14 +9,14 @@ import { User } from 'src/app/auth/auth.service';
 export class UserService {
   constructor(private http: HttpClient, private authService: AuthService) {}
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>('http://localhost:4402/users', {
+    return this.http.get<User[]>('http://54.37.138.92:4402/users', {
       headers: {
         Authorization: 'Bearer ' + this.authService.getToken(),
       },
     });
   }
   getUserById(id: string | undefined): Observable<User> {
-    return this.http.get<User>(`http://localhost:4402/users/${id}`, {
+    return this.http.get<User>(`http://54.37.138.92:4402/users/${id}`, {
       headers: {
         Authorization: 'Bearer ' + this.authService.getToken(),
       },
@@ -25,7 +25,7 @@ export class UserService {
   updateUser(user: any): Observable<User> {
     const { login, name, password } = user;
     return this.http.put<User>(
-      `http://localhost:4402/users/${user.id}`,
+      `http://54.37.138.92:4402/users/${user.id}`,
       {
         login,
         name,
@@ -40,7 +40,7 @@ export class UserService {
   }
 
   deleteUser(id: string | null): Observable<User> {
-    const url = `http://localhost:4402/users/${id}`;
+    const url = `http://54.37.138.92:4402/users/${id}`;
     return this.http.delete<User>(url, {
       headers: {
         Authorization: 'Bearer ' + this.authService.getToken(),

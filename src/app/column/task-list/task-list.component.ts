@@ -59,7 +59,7 @@ export class TaskListComponent implements OnInit {
         console.log(task._id);
         this.http
           .patch(
-            'http://localhost:4402/tasksSet',
+            'http://54.37.138.92:4402/tasksSet',
             [{ _id: task._id, order: task.order, columnId: task.columnId }],
             {
               headers: {

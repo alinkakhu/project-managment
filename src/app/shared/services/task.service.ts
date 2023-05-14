@@ -12,7 +12,7 @@ export class TaskService {
   task!: any;
   constructor(private http: HttpClient, private authService: AuthService) {}
   getTasks(boardId: string | undefined): Observable<Task[]> {
-    const url = `http://localhost:4402/tasksSet/${boardId}`;
+    const url = `http://54.37.138.92:4402/tasksSet/${boardId}`;
     return this.http.get<Task[]>(url, {
       headers: {
         Authorization: 'Bearer ' + this.authService.getToken(),
@@ -23,7 +23,7 @@ export class TaskService {
   createTask(task: Task): Observable<Task> {
     const { title, description, order, users, userId, boardId, columnId } =
       task;
-    const url = `http://localhost:4402/boards/${boardId}/columns/${columnId}/tasks`;
+    const url = `http://54.37.138.92:4402/boards/${boardId}/columns/${columnId}/tasks`;
     return this.http.post<Task>(
       url,
       { title, description, order, users, userId },
@@ -38,7 +38,7 @@ export class TaskService {
     boardId: string | undefined,
     columnId: string | undefined
   ): Observable<unknown> {
-    const url = `http://localhost:4402/boards/${boardId}/columns/${columnId}/tasks`;
+    const url = `http://54.37.138.92:4402/boards/${boardId}/columns/${columnId}/tasks`;
     return this.http.get<unknown>(url, {
       headers: {
         Authorization: 'Bearer ' + this.authService.getToken(),
@@ -51,7 +51,7 @@ export class TaskService {
     columnId: string | undefined | null,
     taskId: string | undefined
   ) {
-    const url = `http://localhost:4402/boards/${boardId}/columns/${columnId}/tasks/${taskId}`;
+    const url = `http://54.37.138.92:4402/boards/${boardId}/columns/${columnId}/tasks/${taskId}`;
     return this.http.delete<Task>(url, {
       headers: {
         Authorization: 'Bearer ' + this.authService.getToken(),
@@ -62,7 +62,7 @@ export class TaskService {
   editTask(task: Task): Observable<Task> {
     const { title, description, order, users, userId, boardId, columnId, _id } =
       task;
-    const url = `http://localhost:4402/boards/${boardId}/columns/${columnId}/tasks/${_id}`;
+    const url = `http://54.37.138.92:4402/boards/${boardId}/columns/${columnId}/tasks/${_id}`;
     return this.http.put<Task>(
       url,
       {
