@@ -1,0 +1,15 @@
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+  height: 70%;
+}
+.error {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-close {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}

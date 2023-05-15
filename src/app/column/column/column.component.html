@@ -1,0 +1,28 @@
+<div class="card border-primary mb-3" style="max-width: 18rem">
+  <div class="title-area">
+    <ng-container *ngIf="column.title">
+      <div class="card-header" *ngIf="!inputVisible" (click)="updateTitle()">
+        {{ column.title }}
+      </div>
+    </ng-container>
+
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)" *ngIf="inputVisible">
+      <input name="title" class="form-control" ngModel name="title" />
+
+      <button type="button" title="cancel" (click)="cancel()">
+        <fa-icon [icon]="xmark"></fa-icon>
+      </button>
+      <button type="submit">
+        <fa-icon [icon]="check"></fa-icon>
+      </button>
+    </form>
+    <button class="btn-trash" (click)="deleteColumn(column)">
+      <fa-icon class="trash" [icon]="trash"></fa-icon>
+    </button>
+  </div>
+
+  <div class="card-body text-primary">
+    <app-task-list [column]="column"></app-task-list>
+  </div>
+  <div class="card-footer"><app-add-task [column]="column"></app-add-task></div>
+</div>

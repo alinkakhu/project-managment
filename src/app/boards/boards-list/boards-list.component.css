@@ -1,0 +1,30 @@
+.main-content {
+  max-width: 1200px;
+  margin: 30px 20px;
+  display: flex;
+  gap: 30px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  flex-wrap: wrap;
+  height: 70%;
+}
+
+@media screen and (min-width: 480px) {
+  .main-content {
+    width: 480px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .main-content {
+    width: 768px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .main-content {
+    min-width: 1400px;
+  }
+}

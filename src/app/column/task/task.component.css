@@ -1,0 +1,15 @@
+.trash {
+  font-size: 16px;
+}
+.btn-trash {
+  border: none;
+  background-color: transparent;
+}
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-self: baseline;
+  border: 1px solid #e5e7eb;
+  padding-left: 10px;
+  margin-top: 5px;
+}

@@ -1,0 +1,11 @@
+.row{
+  justify-content: center;
+}
+.jumbotron{
+  height: 600px;
+  background-color: white;
+}
+.container{
+
+margin:auto
+}

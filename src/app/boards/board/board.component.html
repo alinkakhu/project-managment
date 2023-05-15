@@ -1,0 +1,17 @@
+<div class="card" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">{{ board.title }}</h5>
+  </div>
+  <div class="buttons bg-light">
+    <a href="" class="btn btn-primary" [routerLink]="['/boards', board._id]">{{
+      "openboard" | translate
+    }}</a>
+    <button
+      type="button"
+      class="btn btn-outline-danger"
+      (click)="onDelete(board)"
+    >
+      {{ "deleteboard" | translate }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="main-content">
+  <app-board
+    (deleteEvent)="updateData($event)"
+    *ngFor="let board of boards"
+    [board]="board"
+  ></app-board>
+</div>

@@ -1,0 +1,29 @@
+{
+    "login": "Login",
+    "signUp": "Sign up",
+    "login2":"Login",
+    "password":"Password",
+    "boards": "Boards",
+    "edit": "Edit",
+    "logout":"Logout",
+    "notmember": "Not a member?",
+    "name":"Name",
+    "createboard":"Create board",
+     "openboard": "Go to board",
+     "deleteboard":"Delete board",
+     "back": "Back",
+     "createcolumn": "Create column",
+     "addtask":"Add new task",
+     "tasktitle":"task title",
+     "Title":"Title",
+     "descr":"Description",
+     "cancel":"Cancel",
+     "sure":"Are you sure",
+     "yes": "Yes",
+     "no":"No",
+     "save":"Save",
+     "delete":"Delete",
+     "deleteprofile":"Delete profile"
+
+
+}

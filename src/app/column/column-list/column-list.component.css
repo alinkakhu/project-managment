@@ -1,0 +1,8 @@
+.column-list {
+  display: flex;
+  flex: row;
+  justify-content: flex-start;
+
+  gap: 20px;
+  overflow-x: auto;
+}
