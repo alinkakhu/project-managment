@@ -12,17 +12,23 @@
             (this.http = le), (this.authlogin = "");
           }
           signup(le, ue, ye) {
-            return this.http.post("http://54.37.138.92:4402/auth/signup", {
-              login: le,
-              password: ue,
-              name: ye,
-            });
+            return this.http.post(
+              "https://pma-backend-production-9142.up.railway.app//auth/signup",
+              {
+                login: le,
+                password: ue,
+                name: ye,
+              }
+            );
           }
           login(le, ue) {
-            return this.http.post("http://54.37.138.92:4402/auth/signin", {
-              login: le,
-              password: ue,
-            });
+            return this.http.post(
+              "https://pma-backend-production-9142.up.railway.app//auth/signin",
+              {
+                login: le,
+                password: ue,
+              }
+            );
           }
           autoLogout(le) {
             setTimeout(() => {
@@ -2609,7 +2615,7 @@
           }
           getColumns(w) {
             return this.http.get(
-              `http://54.37.138.92:4402/boards/${w}/columns`,
+              `https://pma-backend-production-9142.up.railway.app//boards/${w}/columns`,
               {
                 headers: {
                   Authorization: "Bearer " + this.authService.getToken(),
@@ -2620,7 +2626,7 @@
           createColumn(w) {
             const { boardId: P, title: Q, order: we } = w;
             return this.http.post(
-              `http://54.37.138.92:4402/boards/${P}/columns`,
+              `https://pma-backend-production-9142.up.railway.app//boards/${P}/columns`,
               { title: Q, order: we },
               {
                 headers: {
@@ -2632,7 +2638,7 @@
           updateColumn(w) {
             const { boardId: P, _id: Q, title: we, order: Je } = w;
             return this.http.put(
-              `http://54.37.138.92:4402/boards/${P}/columns/${Q}`,
+              `https://pma-backend-production-9142.up.railway.app//boards/${P}/columns/${Q}`,
               { title: we, order: Je },
               {
                 headers: {
@@ -2643,7 +2649,7 @@
           }
           deleteColumn(w, P) {
             return this.http.delete(
-              `http://54.37.138.92:4402/boards/${w}/columns/${P}`,
+              `https://pma-backend-production-9142.up.railway.app//boards/${w}/columns/${P}`,
               {
                 headers: {
                   Authorization: "Bearer " + this.authService.getToken(),
@@ -2716,11 +2722,14 @@
               (this._listeners = new Oe.x());
           }
           getTasks(w) {
-            return this.http.get(`http://54.37.138.92:4402/tasksSet/${w}`, {
-              headers: {
-                Authorization: "Bearer " + this.authService.getToken(),
-              },
-            });
+            return this.http.get(
+              `https://pma-backend-production-9142.up.railway.app//tasksSet/${w}`,
+              {
+                headers: {
+                  Authorization: "Bearer " + this.authService.getToken(),
+                },
+              }
+            );
           }
           createTask(w) {
             const {
@@ -2733,7 +2742,7 @@
               columnId: k2,
             } = w;
             return this.http.post(
-              `http://54.37.138.92:4402/boards/${f2}/columns/${k2}/tasks`,
+              `https://pma-backend-production-9142.up.railway.app//boards/${f2}/columns/${k2}/tasks`,
               { title: P, description: Q, order: we, users: Je, userId: Ht },
               {
                 headers: {
@@ -2744,7 +2753,7 @@
           }
           getTaskById(w, P) {
             return this.http.get(
-              `http://54.37.138.92:4402/boards/${w}/columns/${P}/tasks`,
+              `https://pma-backend-production-9142.up.railway.app//boards/${w}/columns/${P}/tasks`,
               {
                 headers: {
                   Authorization: "Bearer " + this.authService.getToken(),
@@ -2754,7 +2763,7 @@
           }
           deleteTask(w, P, Q) {
             return this.http.delete(
-              `http://54.37.138.92:4402/boards/${w}/columns/${P}/tasks/${Q}`,
+              `https://pma-backend-production-9142.up.railway.app//boards/${w}/columns/${P}/tasks/${Q}`,
               {
                 headers: {
                   Authorization: "Bearer " + this.authService.getToken(),
@@ -2774,7 +2783,7 @@
               _id: _1,
             } = w;
             return this.http.put(
-              `http://54.37.138.92:4402/boards/${f2}/columns/${k2}/tasks/${_1}`,
+              `https://pma-backend-production-9142.up.railway.app//boards/${f2}/columns/${k2}/tasks/${_1}`,
               {
                 title: P,
                 order: we,
@@ -3103,7 +3112,7 @@
                       console.log(Je._id),
                       this.http
                         .patch(
-                          "http://54.37.138.92:4402/tasksSet",
+                          "https://pma-backend-production-9142.up.railway.app//tasksSet",
                           [
                             {
                               _id: Je._id,
@@ -3709,7 +3718,7 @@
                   (Q.order = P++),
                     this.http
                       .patch(
-                        "http://54.37.138.92:4402/columnsSet",
+                        "https://pma-backend-production-9142.up.railway.app//columnsSet",
                         [{ _id: Q._id, order: Q.order }],
                         {
                           headers: {
@@ -4084,32 +4093,45 @@
               (this._listeners = new u.x());
           }
           getBoards(ye) {
-            return this.http.get(`http://54.37.138.92:4402/boardsSet/${ye}`, {
-              headers: {
-                Authorization: "Bearer " + this.authService.getToken(),
-              },
-            });
+            return this.http.get(
+              `https://pma-backend-production-9142.up.railway.app//boardsSet/${ye}`,
+              {
+                headers: {
+                  Authorization: "Bearer " + this.authService.getToken(),
+                },
+              }
+            );
           }
           createBoard(ye) {
-            return this.http.post("http://54.37.138.92:4402/boards", ye, {
-              headers: {
-                Authorization: "Bearer " + this.authService.getToken(),
-              },
-            });
+            return this.http.post(
+              "https://pma-backend-production-9142.up.railway.app//boards",
+              ye,
+              {
+                headers: {
+                  Authorization: "Bearer " + this.authService.getToken(),
+                },
+              }
+            );
           }
           deleteBoard(ye) {
-            return this.http.delete(`http://54.37.138.92:4402/boards/${ye}`, {
-              headers: {
-                Authorization: "Bearer " + this.authService.getToken(),
-              },
-            });
+            return this.http.delete(
+              `https://pma-backend-production-9142.up.railway.app//boards/${ye}`,
+              {
+                headers: {
+                  Authorization: "Bearer " + this.authService.getToken(),
+                },
+              }
+            );
           }
           getBoardId(ye) {
-            return this.http.get(`http://54.37.138.92:4402/boards/${ye}`, {
-              headers: {
-                Authorization: "Bearer " + this.authService.getToken(),
-              },
-            });
+            return this.http.get(
+              `https://pma-backend-production-9142.up.railway.app//boards/${ye}`,
+              {
+                headers: {
+                  Authorization: "Bearer " + this.authService.getToken(),
+                },
+              }
+            );
           }
           listen() {
             return this._listeners.asObservable();
@@ -4169,23 +4191,29 @@
             (this.http = ue), (this.authService = ye);
           }
           getUsers() {
-            return this.http.get("http://54.37.138.92:4402/users", {
-              headers: {
-                Authorization: "Bearer " + this.authService.getToken(),
-              },
-            });
+            return this.http.get(
+              "https://pma-backend-production-9142.up.railway.app//users",
+              {
+                headers: {
+                  Authorization: "Bearer " + this.authService.getToken(),
+                },
+              }
+            );
           }
           getUserById(ue) {
-            return this.http.get(`http://54.37.138.92:4402/users/${ue}`, {
-              headers: {
-                Authorization: "Bearer " + this.authService.getToken(),
-              },
-            });
+            return this.http.get(
+              `https://pma-backend-production-9142.up.railway.app//users/${ue}`,
+              {
+                headers: {
+                  Authorization: "Bearer " + this.authService.getToken(),
+                },
+              }
+            );
           }
           updateUser(ue) {
             const { login: ye, name: C, password: be } = ue;
             return this.http.put(
-              `http://54.37.138.92:4402/users/${ue.id}`,
+              `https://pma-backend-production-9142.up.railway.app//users/${ue.id}`,
               { login: ye, name: C, password: be },
               {
                 headers: {
@@ -4195,11 +4223,14 @@
             );
           }
           deleteUser(ue) {
-            return this.http.delete(`http://54.37.138.92:4402/users/${ue}`, {
-              headers: {
-                Authorization: "Bearer " + this.authService.getToken(),
-              },
-            });
+            return this.http.delete(
+              `https://pma-backend-production-9142.up.railway.app//users/${ue}`,
+              {
+                headers: {
+                  Authorization: "Bearer " + this.authService.getToken(),
+                },
+              }
+            );
           }
         }
         return (
