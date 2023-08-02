@@ -36,25 +36,25 @@
             }, le);
           }
           getLang() {
-            return localStorage.getItem("language");
+            return sessionStorage.getItem("language");
           }
           isLoggedIn() {
-            return localStorage.getItem("token");
+            return sessionStorage.getItem("token");
           }
           logout() {
-            localStorage.clear();
+            sessionStorage.clear();
           }
           getToken() {
-            return localStorage.getItem("token");
+            return sessionStorage.getItem("token");
           }
           getUserId() {
-            return localStorage.getItem("id");
+            return sessionStorage.getItem("id");
           }
           getName() {
-            return localStorage.getItem("name");
+            return sessionStorage.getItem("name");
           }
           getLogin() {
-            return localStorage.getItem("login");
+            return sessionStorage.getItem("login");
           }
         }
         return (
@@ -4428,7 +4428,7 @@
           switchLang(f) {
             this.langService.changeLocale(f),
               this.translate.use(f),
-              localStorage.setItem("language", f);
+              sessionStorage.setItem("language", f);
           }
         }
         return (
@@ -4543,12 +4543,12 @@
               return !!this.auth.isLoggedIn();
             }
             getName() {
-              return localStorage.getItem("name");
+              return sessionStorage.getItem("name");
             }
             logout() {
-              localStorage.removeItem("token"),
-                localStorage.removeItem("login"),
-                localStorage.removeItem("id"),
+              sessionStorage.removeItem("token"),
+                sessionStorage.removeItem("login"),
+                sessionStorage.removeItem("id"),
                 this.router.navigate(["/welcome-page"]);
             }
           }
@@ -5144,14 +5144,14 @@
             const { login: f, password: _ } = this.loginForm.value;
             this.authService.login(f, _).subscribe(
               (k) => {
-                localStorage.setItem("token", k.token),
-                  localStorage.setItem("login", f),
+                sessionStorage.setItem("token", k.token),
+                  sessionStorage.setItem("login", f),
                   this.userService.getUsers().subscribe((W) => {
                     const xe = W.filter((qt) => qt.login === f)[0],
                       Ze = xe._id,
                       dt = xe.name;
-                    localStorage.setItem("id", Ze),
-                      localStorage.setItem("name", dt),
+                    sessionStorage.setItem("id", Ze),
+                      sessionStorage.setItem("name", dt),
                       this.boaedService.getBoards(Ze),
                       this.router.navigate(["/boards"]);
                   });
@@ -5781,8 +5781,8 @@
                   (ve) => {
                     console.log(ve),
                       (this.isUpdated = !0),
-                      localStorage.setItem("login", ve.login),
-                      localStorage.setItem("name", ve.name);
+                      sessionStorage.setItem("login", ve.login),
+                      sessionStorage.setItem("name", ve.name);
                   },
                   (ve) => {
                     console.log(ve);
